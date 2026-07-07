@@ -50,9 +50,9 @@
           </span>
         </div>
         <div class="top-bar-social" aria-label="Redes sociales">
-          <a href="#" aria-label="LinkedIn de Valdés &amp; Asociados" class="link-underline link-underline--light">LinkedIn</a>
+          <a href="#" data-wip="LinkedIn" aria-label="LinkedIn de Valdés &amp; Asociados" class="link-underline link-underline--light">LinkedIn</a>
           <span aria-hidden="true" style="color:rgba(250,249,246,0.3)">|</span>
-          <a href="#" aria-label="Twitter de Valdés &amp; Asociados" class="link-underline link-underline--light">Twitter/X</a>
+          <a href="#" data-wip="Twitter / X" aria-label="Twitter de Valdés &amp; Asociados" class="link-underline link-underline--light">Twitter/X</a>
         </div>
       </div>
     </div>
@@ -1127,13 +1127,43 @@
           &copy; 2024 Valdés &amp; Asociados. Todos los derechos reservados. RUT: 76.543.210-K
         </p>
         <div class="footer-legal-links">
-          <a href="#" class="link-underline">Política de Privacidad</a>
-          <a href="#" class="link-underline">Términos de Uso</a>
+          <a href="#" data-wip="Política de Privacidad" class="link-underline">Política de Privacidad</a>
+          <a href="#" data-wip="Términos de Uso" class="link-underline">Términos de Uso</a>
         </div>
       </div>
 
     </div>
   </footer>
+
+  <!-- Toast "En construcción" -->
+  <div id="wipToast" role="status" aria-live="polite" aria-atomic="true" style="
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #1A2942;
+    border: 1px solid rgba(184,146,74,0.45);
+    border-left: 3px solid #B8924A;
+    border-radius: 4px;
+    padding: 1rem 1.3rem;
+    min-width: 260px;
+    max-width: 340px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  ">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B8924A" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:1px" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div>
+      <p id="wipToastTitle" style="font-family:'Source Sans 3',sans-serif;font-size:0.88rem;font-weight:700;color:#FAF9F6;margin:0 0 0.2rem;">Página en construcción</p>
+      <p id="wipToastBody" style="font-family:'Source Sans 3',sans-serif;font-size:0.8rem;color:rgba(250,249,246,0.6);margin:0;line-height:1.4;">Esta sección estará disponible próximamente.</p>
+    </div>
+    <button onclick="document.getElementById('wipToast').style.opacity=0;document.getElementById('wipToast').style.transform='translateY(12px)';" style="background:none;border:none;color:rgba(250,249,246,0.35);font-size:1.1rem;cursor:pointer;margin-left:auto;padding:0;line-height:1;" aria-label="Cerrar notificación">&times;</button>
+  </div>
 
   <!-- Bootstrap 5 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmFnqPFE4m0J9xzpF2r8GtRtStM" crossorigin="anonymous"></script>

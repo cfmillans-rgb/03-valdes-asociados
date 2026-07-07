@@ -359,4 +359,52 @@
     );
     sections.forEach((s) => navObserver.observe(s));
   }
+
+  /* ============================================================
+     TOAST "EN CONSTRUCCIÓN" — links con data-wip
+     ============================================================ */
+  const wipToast      = document.getElementById('wipToast');
+  const wipToastTitle = document.getElementById('wipToastTitle');
+  const wipToastBody  = document.getElementById('wipToastBody');
+  let wipTimer        = null;
+
+  function showWipToast(label) {
+    if (!wipToast) return;
+
+    // Actualizar texto según el link
+    const labels = {
+      'LinkedIn':               ['LinkedIn — Próximamente', 'Estamos configurando nuestra presencia en LinkedIn.'],
+      'Twitter / X':            ['Twitter / X — Próximamente', 'Próximamente podrá seguirnos en Twitter / X.'],
+      'Política de Privacidad': ['Política de Privacidad', 'Este documento estará disponible en breve.'],
+      'Términos de Uso':        ['Términos de Uso', 'Este documento estará disponible en breve.'],
+    };
+
+    const [title, body] = labels[label] || ['Página en construcción', 'Esta sección estará disponible próximamente.'];
+    wipToastTitle.textContent = title;
+    wipToastBody.textContent  = body;
+
+    // Mostrar
+    wipToast.style.opacity        = '1';
+    wipToast.style.transform      = 'translateY(0)';
+    wipToast.style.pointerEvents  = 'auto';
+
+    // Auto-ocultar a los 4 s
+    clearTimeout(wipTimer);
+    wipTimer = setTimeout(hideWipToast, 4000);
+  }
+
+  function hideWipToast() {
+    if (!wipToast) return;
+    wipToast.style.opacity       = '0';
+    wipToast.style.transform     = 'translateY(12px)';
+    wipToast.style.pointerEvents = 'none';
+  }
+
+  document.querySelectorAll('[data-wip]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      showWipToast(link.dataset.wip);
+    });
+  });
+
 })();
