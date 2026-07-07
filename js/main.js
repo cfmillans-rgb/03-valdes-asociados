@@ -43,13 +43,15 @@
      ============================================================ */
   const carousel = document.querySelector('[data-carousel="va"]');
 
+
   if (carousel) {
     const track     = carousel.querySelector('[data-carousel-track]');
     const slides    = Array.from(carousel.querySelectorAll('[data-slide]'));
-    const dotsWrap  = carousel.querySelector('[data-carousel-dots]');
-    const prevBtn   = carousel.querySelector('[data-carousel-prev]');
-    const nextBtn   = carousel.querySelector('[data-carousel-next]');
-    const counterEl = carousel.querySelector('[data-carousel-counter]');
+    // Los controles viven FUERA del div del carrusel → buscar en document
+    const dotsWrap  = document.querySelector('[data-carousel-dots]');
+    const prevBtn   = document.querySelector('[data-carousel-prev]');
+    const nextBtn   = document.querySelector('[data-carousel-next]');
+    const counterEl = document.querySelector('[data-carousel-counter]');
 
     let current    = 0;
     let total      = slides.length;
